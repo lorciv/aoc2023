@@ -42,9 +42,9 @@ func digits(s string) []int {
 }
 
 func value(s string) int {
-	x := digits(s)
-	first := x[0]
-	last := x[len(x)-1]
+	d := digits(s)
+	first := d[0]
+	last := d[len(d)-1]
 	return 10*first + last
 }
 
