@@ -34,7 +34,7 @@ func digits(s string) []int {
 	}
 	for word, val := range words {
 		if strings.HasPrefix(s, word) {
-			tail := digits(s[len(word):])
+			tail := digits(s[1:])
 			return append([]int{val}, tail...)
 		}
 	}
