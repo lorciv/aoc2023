@@ -17,3 +17,8 @@ Postponed part 2 for now. Omitted tests as well.
 
 Super tedious!
 Part 2 skipped for now.
+
+# Day 4
+
+Finally an easier task.
+Part 2 skipped for now.
