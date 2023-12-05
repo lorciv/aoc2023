@@ -22,3 +22,8 @@ Part 2 skipped for now.
 
 Finally an easier task.
 Part 2 skipped for now.
+
+## Day 5
+
+Not very happy with the solution, but it works.
+I read on r/advendofcode that part 2 is hard. No problem, I'll skip it.
