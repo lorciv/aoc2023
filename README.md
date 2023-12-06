@@ -27,3 +27,7 @@ Part 2 skipped for now.
 
 Not very happy with the solution, but it works.
 I read on r/advendofcode that part 2 is hard. No problem, I'll skip it.
+
+## Day 6
+
+Doable, at least in part 1.
