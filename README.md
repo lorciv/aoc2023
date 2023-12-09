@@ -34,7 +34,11 @@ Doable, at least in part 1.
 
 ## Day 9
 
-A nice little recursive function solved the problem.
-For once, I also manage to write proper tests!
-Part 2 was a simple flip in the logic that required a couple of minutes for implementation.
-Overall, today I'm satisfied.
+**Problem.** Given a sequence of numbers, predict the next one.
+The algorithm to predict the next number is given by the assignment, and it is recursive.
+Part 2 asks to predict the value before the first one, following a similar logic.
+
+**Comment.** A nice little recursive function solved the problem.
+For once, I also manage to write proper tests.
+Part 2 was a simple flip in the logic that required just a couple of minutes for implementation.
+Overall, today's solution came smoothly and I feel satisfied.
