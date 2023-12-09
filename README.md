@@ -36,3 +36,5 @@ Doable, at least in part 1.
 
 A nice little recursive function solved the problem.
 For once, I also manage to write proper tests!
+Part 2 was a simple flip in the logic that required a couple of minutes for implementation.
+Overall, today I'm satisfied.
