@@ -1,10 +1,36 @@
 # Advent of Code 2023
 
 My solutions to the puzzles.
+All programs read the puzzle from standard input and print the solution to standard output, just like good old [Unix filters](https://en.wikipedia.org/wiki/Filter_(software)) are supposed to do.
 
 ## Day 1
 
-Initially, part 2 worked on tests but failed on input. I couldn't understand why.
+**Problem.**
+You are given lines of text that contain digits and letters.
+For each line, you are asked to find the first and the last digit and combine them into a number.
+Finally, you sum all the numbers.
+
+```
+1abc2
+pqr3stu8vwx
+a1b2c3d4e5f
+treb7uchet
+```
+
+In part 2, you find out that digits can be found as words as well.
+
+```
+two1nine
+eightwothree
+abcone2threexyz
+xtwone3four
+4nineeightseven2
+zoneight234
+7pqrstsixteen
+```
+
+**Comment.**
+Initially, part 2 worked on tests but failed on input, and I couldn't understand why.
 Then on r/adventofcode I read that the program needs to take into account overlapping words.
 It was a simple change in the code, but left me disheartened.
 
