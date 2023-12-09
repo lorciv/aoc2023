@@ -31,3 +31,8 @@ I read on r/advendofcode that part 2 is hard. No problem, I'll skip it.
 ## Day 6
 
 Doable, at least in part 1.
+
+## Day 9
+
+A nice little recursive function solved the problem.
+For once, I also manage to write proper tests!
