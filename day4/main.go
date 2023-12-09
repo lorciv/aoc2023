@@ -10,8 +10,21 @@ import (
 )
 
 type card struct {
+	count       int
 	id          int
 	actual, win []int
+}
+
+func matches(c card) int {
+	m := 0
+	for _, a := range c.actual {
+		for _, w := range c.win {
+			if a == w {
+				m++
+			}
+		}
+	}
+	return m
 }
 
 func points(c card) int {
@@ -29,7 +42,10 @@ func points(c card) int {
 }
 
 func parse(s string) card {
-	var c card
+	c := card{
+		count: 1,
+	}
+
 	before, after, _ := strings.Cut(s, ":")
 	fmt.Sscanf(before, "Card %d", &c.id)
 
@@ -56,14 +72,32 @@ func parseNumbers(s string) []int {
 }
 
 func main() {
-	tot := 0
+	var cards []card
 
 	scan := bufio.NewScanner(os.Stdin)
 	for scan.Scan() {
 		line := scan.Text()
 		c := parse(line)
-		tot += points(c)
+		cards = append(cards, c)
 	}
 
-	fmt.Println(tot)
+	// Part 1
+	totPoints := 0
+	for _, c := range cards {
+		totPoints += points(c)
+	}
+	fmt.Println("points", totPoints)
+
+	// Part 2
+	for i, c := range cards {
+		m := matches(c)
+		for j := 0; j < m; j++ {
+			cards[i+j+1].count += c.count
+		}
+	}
+	totCards := 0
+	for _, c := range cards {
+		totCards += c.count
+	}
+	fmt.Println("cards", totCards)
 }
