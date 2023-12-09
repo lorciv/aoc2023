@@ -10,14 +10,7 @@ import (
 )
 
 func predict(nums []int) int {
-	zeros := true
-	for _, n := range nums {
-		if n != 0 {
-			zeros = false
-			break
-		}
-	}
-	if zeros {
+	if zero(nums) {
 		return 0
 	}
 
@@ -26,6 +19,29 @@ func predict(nums []int) int {
 		diff[i] = nums[i+1] - nums[i]
 	}
 	return nums[len(nums)-1] + predict(diff)
+}
+
+func postdict(nums []int) int {
+	if zero(nums) {
+		return 0
+	}
+
+	diff := make([]int, len(nums)-1)
+	for i := 0; i < len(diff); i++ {
+		diff[i] = nums[i+1] - nums[i]
+	}
+	return nums[0] - postdict(diff)
+}
+
+func zero(nums []int) bool {
+	z := true
+	for _, n := range nums {
+		if n != 0 {
+			z = false
+			break
+		}
+	}
+	return z
 }
 
 func parse(s string) ([]int, error) {
@@ -42,7 +58,7 @@ func parse(s string) ([]int, error) {
 }
 
 func main() {
-	sum := 0
+	presum, postsum := 0, 0
 
 	scan := bufio.NewScanner(os.Stdin)
 	for scan.Scan() {
@@ -52,11 +68,12 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		sum += predict(nums)
+		presum += predict(nums)
+		postsum += postdict(nums)
 	}
 	if err := scan.Err(); err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println(sum)
+	fmt.Println(presum, postsum)
 }
