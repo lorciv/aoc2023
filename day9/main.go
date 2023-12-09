@@ -14,11 +14,8 @@ func predict(nums []int) int {
 		return 0
 	}
 
-	diff := make([]int, len(nums)-1)
-	for i := 0; i < len(diff); i++ {
-		diff[i] = nums[i+1] - nums[i]
-	}
-	return nums[len(nums)-1] + predict(diff)
+	d := diff(nums)
+	return nums[len(nums)-1] + predict(d)
 }
 
 func postdict(nums []int) int {
@@ -26,11 +23,16 @@ func postdict(nums []int) int {
 		return 0
 	}
 
-	diff := make([]int, len(nums)-1)
-	for i := 0; i < len(diff); i++ {
-		diff[i] = nums[i+1] - nums[i]
+	d := diff(nums)
+	return nums[0] - postdict(d)
+}
+
+func diff(nums []int) []int {
+	d := make([]int, len(nums)-1)
+	for i := 0; i < len(d); i++ {
+		d[i] = nums[i+1] - nums[i]
 	}
-	return nums[0] - postdict(diff)
+	return d
 }
 
 func zero(nums []int) bool {
