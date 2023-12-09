@@ -20,8 +20,16 @@ Part 2 skipped for now.
 
 ## Day 4
 
-Finally an easier task.
-Part 2 skipped for now.
+**Problem.**
+You are given a list of scratchcards.
+In part 1, you are asked to compute the score for each card and sum them all together.
+In part 2, cards make you win copies of other cards.
+Instead of computing the score of each card, you count the number of cards you end up with.
+
+**Comment.**
+Finally an easier task!
+I just parsed the cards, put them into a list, and then do all the calculations, which are straightforward.
+I represent multiple copies of the same card with an additional field "count" inside the card struct (instead of creating multple card objects).
 
 ## Day 5
 
