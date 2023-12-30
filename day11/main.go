@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -44,7 +45,7 @@ func galaxies() []cell {
 	return g
 }
 
-func dist(c, d cell) int {
+func dist(c, d cell, exp int) int {
 	res := 0
 
 	src, end := c.x, d.x
@@ -52,8 +53,9 @@ func dist(c, d cell) int {
 		src, end = end, src
 	}
 	for i := src; i < end; i++ {
-		res++
 		if emptyRow(i) {
+			res += exp
+		} else {
 			res++
 		}
 	}
@@ -63,8 +65,9 @@ func dist(c, d cell) int {
 		src, end = end, src
 	}
 	for j := src; j < end; j++ {
-		res++
 		if emptyCol(j) {
+			res += exp
+		} else {
 			res++
 		}
 	}
@@ -72,7 +75,10 @@ func dist(c, d cell) int {
 	return res
 }
 
+var expansionFactor = flag.Int("e", 2, "expansion factor for empty rows/columns")
+
 func main() {
+	flag.Parse()
 
 	scan := bufio.NewScanner(os.Stdin)
 	for scan.Scan() {
@@ -88,7 +94,8 @@ func main() {
 	gal := galaxies()
 	for i := 0; i < len(gal); i++ {
 		for j := i + 1; j < len(gal); j++ {
-			d := dist(gal[i], gal[j])
+			// expansion factor == 2 for part 1, 1000000 for part 2
+			d := dist(gal[i], gal[j], *expansionFactor)
 			sum += d
 		}
 	}
